@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:math_expressions/math_expressions.dart';
 
 import 'components/my_button.dart';
 
@@ -21,65 +22,226 @@ class _HomePageState extends State<HomePage> {
         child: SafeArea(
           child: Column(
             children: [
+              // input and result
               Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  child: Column(
+                    children: [
+                      Text(
+                        userInput.toString(),
+                        style: const TextStyle(
+                          fontSize: 30,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        result.toString(),
+                        style: const TextStyle(
+                          fontSize: 30,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              // keyboard buttons
+              Expanded(
+                flex: 3,
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Row(
                       children: [
-                        MyButton(title: 'AC', onPress: () {}),
-                        MyButton(title: '+/-', onPress: () {}),
-                        MyButton(title: '%', onPress: () {}),
+                        MyButton(
+                            title: 'AC',
+                            onPress: () {
+                              userInput = '';
+                              result = '';
+                              setState(() {});
+                            }),
+                        MyButton(
+                            title: '+/-',
+                            onPress: () {
+                              userInput += '+/-';
+                              setState(() {});
+                            }),
+                        MyButton(
+                            title: '%',
+                            onPress: () {
+                              userInput += '%';
+                              setState(() {});
+                            }),
                         MyButton(
                           title: '/',
-                          onPress: () {},
+                          onPress: () {
+                            var lastChar = userInput[userInput.length - 1];
+                            //remove the last operator
+                            if (lastChar == '+' ||
+                                lastChar == '-' ||
+                                lastChar == 'x' ||
+                                lastChar == '/') {
+                              userInput =
+                                  userInput.substring(0, userInput.length - 1);
+                            }
+                            userInput += '/';
+                            setState(() {});
+                          },
                           color: const Color(0xffffa00a),
                         ),
                       ],
                     ),
                     Row(
                       children: [
-                        MyButton(title: '7', onPress: () {}),
-                        MyButton(title: '8', onPress: () {}),
-                        MyButton(title: '9', onPress: () {}),
+                        MyButton(
+                            title: '7',
+                            onPress: () {
+                              userInput += '7';
+                              setState(() {});
+                            }),
+                        MyButton(
+                            title: '8',
+                            onPress: () {
+                              userInput += '8';
+                              setState(() {});
+                            }),
+                        MyButton(
+                            title: '9',
+                            onPress: () {
+                              userInput += '9';
+                              setState(() {});
+                            }),
                         MyButton(
                           title: 'x',
-                          onPress: () {},
+                          onPress: () {
+                            var lastChar = userInput[userInput.length - 1];
+                            //remove the last operator
+                            if (lastChar == '+' ||
+                                lastChar == '-' ||
+                                lastChar == 'x' ||
+                                lastChar == '/') {
+                              userInput =
+                                  userInput.substring(0, userInput.length - 1);
+                            }
+                            userInput += 'x';
+                            setState(() {});
+                          },
                           color: const Color(0xffffa00a),
                         ),
                       ],
                     ),
                     Row(
                       children: [
-                        MyButton(title: '4', onPress: () {}),
-                        MyButton(title: '5', onPress: () {}),
-                        MyButton(title: '6', onPress: () {}),
+                        MyButton(
+                            title: '4',
+                            onPress: () {
+                              userInput += '4';
+                              setState(() {});
+                            }),
+                        MyButton(
+                            title: '5',
+                            onPress: () {
+                              userInput += '5';
+                              setState(() {});
+                            }),
+                        MyButton(
+                            title: '6',
+                            onPress: () {
+                              userInput += '6';
+                              setState(() {});
+                            }),
                         MyButton(
                           title: '-',
-                          onPress: () {},
+                          onPress: () {
+                            var lastChar = userInput[userInput.length - 1];
+                            //remove the last operator
+                            if (lastChar == '+' ||
+                                lastChar == '-' ||
+                                lastChar == 'x' ||
+                                lastChar == '/') {
+                              userInput =
+                                  userInput.substring(0, userInput.length - 1);
+                            }
+                            userInput += '-';
+                            setState(() {});
+                          },
                           color: const Color(0xffffa00a),
                         ),
                       ],
                     ),
                     Row(
                       children: [
-                        MyButton(title: '1', onPress: () {}),
-                        MyButton(title: '2', onPress: () {}),
-                        MyButton(title: '3', onPress: () {}),
+                        MyButton(
+                            title: '1',
+                            onPress: () {
+                              userInput += '1';
+                              setState(() {});
+                            }),
+                        MyButton(
+                            title: '2',
+                            onPress: () {
+                              userInput += '2';
+                              setState(() {});
+                            }),
+                        MyButton(
+                            title: '3',
+                            onPress: () {
+                              userInput += '3';
+                              setState(() {});
+                            }),
                         MyButton(
                           title: '+',
-                          onPress: () {},
+                          onPress: () {
+                            var lastChar = userInput[userInput.length - 1];
+                            //remove the last operator
+                            if (lastChar == '+' ||
+                                lastChar == '-' ||
+                                lastChar == 'x' ||
+                                lastChar == '/') {
+                              userInput =
+                                  userInput.substring(0, userInput.length - 1);
+                            }
+                            userInput += '+';
+                            setState(() {});
+                          },
                           color: const Color(0xffffa00a),
                         ),
                       ],
                     ),
                     Row(
                       children: [
-                        MyButton(title: '0', onPress: () {}),
-                        MyButton(title: '.', onPress: () {}),
-                        MyButton(title: 'DEL', onPress: () {}),
+                        MyButton(
+                            title: '0',
+                            onPress: () {
+                              userInput += '0';
+                              setState(() {});
+                            }),
+                        MyButton(
+                            title: '.',
+                            onPress: () {
+                              userInput += '.';
+                              setState(() {});
+                            }),
+                        MyButton(
+                            title: 'DEL',
+                            onPress: () {
+                              //to remove the last char
+                              userInput =
+                                  userInput.substring(0, userInput.length - 1);
+                              setState(() {});
+                            }),
                         MyButton(
                           title: '=',
-                          onPress: () {},
+                          onPress: () {
+                            if (userInput != '') {
+                              equalPress();
+                              setState(() {});
+                            } else {
+                              result = '';
+                              setState(() {});
+                            }
+                          },
                           color: const Color(0xffffa00a),
                         ),
                       ],
@@ -92,5 +254,16 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
+  }
+
+  void equalPress() {
+    String finalUserInput = userInput.replaceAll('x', '*');
+    Parser p = Parser();
+    Expression exp = p.parse(finalUserInput);
+    ContextModel contextModel = ContextModel();
+
+    double eval = exp.evaluate(EvaluationType.REAL, contextModel);
+
+    result = eval.toString();
   }
 }
