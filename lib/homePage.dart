@@ -27,6 +27,8 @@ class _HomePageState extends State<HomePage> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 20),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(
                         userInput.toString(),
@@ -35,11 +37,15 @@ class _HomePageState extends State<HomePage> {
                           color: Colors.white,
                         ),
                       ),
+                      const SizedBox(
+                        height: 8,
+                        width: double.infinity,
+                      ),
                       Text(
                         result.toString(),
                         style: const TextStyle(
-                          fontSize: 30,
-                          color: Colors.white,
+                          fontSize: 40,
+                          color: Colors.green,
                         ),
                       ),
                     ],
@@ -56,6 +62,7 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         MyButton(
                             title: 'AC',
+                            color: const Color(0xffffa00a),
                             onPress: () {
                               userInput = '';
                               result = '';
@@ -63,12 +70,14 @@ class _HomePageState extends State<HomePage> {
                             }),
                         MyButton(
                             title: '+/-',
+                            color: const Color(0xffffa00a),
                             onPress: () {
                               userInput += '+/-';
                               setState(() {});
                             }),
                         MyButton(
                             title: '%',
+                            color: const Color(0xffffa00a),
                             onPress: () {
                               userInput += '%';
                               setState(() {});
