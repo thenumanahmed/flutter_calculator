@@ -30,16 +30,18 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Text(
-                        userInput.toString(),
-                        style: const TextStyle(
-                          fontSize: 30,
-                          color: Colors.white,
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child: Text(
+                          userInput.toString(),
+                          style: const TextStyle(
+                            fontSize: 30,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                       const SizedBox(
-                        height: 8,
-                        width: double.infinity,
+                        height: 10,
                       ),
                       Text(
                         result.toString(),
