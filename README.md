@@ -1,5 +1,4 @@
-# calculator
-
+# Calculator App in Flutter
 A new Flutter project.
 
 # UI Screen 
