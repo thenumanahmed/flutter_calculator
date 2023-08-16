@@ -7,7 +7,7 @@ A new Flutter project.
  <table width="200">
 	<tr>
     		<td align='center'>
-        		<img src="https://github.com/thenumanahmed/flutter_calculator/blob/main/Calculator_UI.jpg" width="350" height="500">
+        		<img src="https://github.com/thenumanahmed/flutter_calculator/blob/main/Calculator_UI.jpg" width="350" height="600">
     		</td>
 	</tr>
 </table>
